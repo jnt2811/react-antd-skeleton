@@ -30,7 +30,7 @@ export const PublicRoute = ({ component: Component, ...rest }) => {
   }
 
   // XOÁ DÒNG DƯỚI ĐI KHI TÍCH HỢP LOGIN
-  isAuth = false;
+  isAuth = false; // né check auth khi truy cập đến route
 
   return (
     <Route
@@ -66,7 +66,7 @@ export const PrivateRoute = ({ component: Component, ...rest }) => {
   }
 
   // XOÁ DÒNG DƯỚI ĐI KHI TÍCH HỢP LOGIN
-  isAuth = true;
+  isAuth = true; // né check auth khi truy cập đến route
 
   return (
     <Route

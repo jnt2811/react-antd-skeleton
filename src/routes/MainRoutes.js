@@ -2,7 +2,12 @@ import { Layout } from "antd";
 import { MainSider, MainHeader } from "../layouts";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { paths } from "../constants";
-import { Dashboard, NoMatch } from "../pages";
+import {
+  LichSuCuocGoi,
+  NoMatch,
+  QuanLyBenhNhan,
+  TiepNhanCuocGoi,
+} from "../pages";
 import { useState } from "react";
 
 export const MainRoutes = () => {
@@ -19,8 +24,24 @@ export const MainRoutes = () => {
 
         <Layout.Content>
           <Switch>
-            <Route exact path={paths.bang_dieu_khien} component={Dashboard} />
-            <Redirect exact from={paths.main} to={paths.bang_dieu_khien} />
+            <Route
+              exact
+              path={paths.tiep_nhan_cuoc_goi}
+              component={TiepNhanCuocGoi}
+            />
+            <Route
+              exact
+              path={paths.lich_su_cuoc_goi}
+              component={LichSuCuocGoi}
+            />
+            <Route
+              exact
+              path={paths.quan_ly_benh_nhan}
+              component={QuanLyBenhNhan}
+            />
+
+            <Redirect exact from={paths.main} to={paths.tiep_nhan_cuoc_goi} />
+
             <Route component={NoMatch} />
           </Switch>
         </Layout.Content>

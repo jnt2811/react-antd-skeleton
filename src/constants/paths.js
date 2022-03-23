@@ -5,5 +5,7 @@ export const paths = {
   dang_nhap: auth + "/dang-nhap",
 
   main: "/",
-  bang_dieu_khien: "/bang-dieu-khien",
+  tiep_nhan_cuoc_goi: "/tiep-nhan-cuoc-goi",
+  lich_su_cuoc_goi: "/lich-su-cuoc-goi",
+  quan_ly_benh_nhan: "/quan-ly-benh-nhan",
 };
