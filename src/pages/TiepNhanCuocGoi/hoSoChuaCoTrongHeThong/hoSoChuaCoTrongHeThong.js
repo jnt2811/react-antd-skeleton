@@ -7,8 +7,9 @@ import i18n, { languageKeys } from "../../../i18n";
 import DatLichKham from "../datLichKham/datLichKham";
 import { GhiChu } from "../ghiChu/GhiChu";
 import style from "./hskctht.module.less";
-import { ThongTinBenhNhan } from "../thongTinBenhNhan";
-import { Avatars } from "../../../assets/imgs";
+// import { ThongTinBenhNhanUnknown } from "../thongTinBenhNhan";
+import { UnknownAva } from "../../../assets/imgs";
+import { ThongTinBenhNhanUnknown } from "../thongTinBenhNhan";
 
 export default function HoSoChuaCoTrongHeThong() {
   const navBarMenu = [
@@ -59,20 +60,15 @@ export default function HoSoChuaCoTrongHeThong() {
             <div className={style["infoWrap"]}>
               <div className={style["infoLeft"]}>
                 <div>
-                  <Image src={Avatars} />
+                  <Image src={UnknownAva} />
                 </div>
                 <div className={style["infoLeftNTName"]}>
-                  <div>Bessie Cooper</div>
+                  <div>Unknown</div>
                   <div>
                     <div>
-                      Giới tính:{" "}
-                      <span className={style["greenFont"]}> &nbsp; Nam</span>
-                    </div>
-                    <div>
-                      Ngày sinh:{" "}
                       <span className={style["greenFont"]}>
                         {" "}
-                        &nbsp;21/03/2000
+                        Không xác định
                       </span>
                     </div>
                   </div>
@@ -80,7 +76,7 @@ export default function HoSoChuaCoTrongHeThong() {
               </div>
 
               <div>
-                <Dropdown overlay={menu}>
+                <Dropdown overlay={menu} disabled>
                   <Button className={style["dropDownButton"]}>
                     Đổi hồ sơ <DownOutlined />
                   </Button>
@@ -104,7 +100,11 @@ export default function HoSoChuaCoTrongHeThong() {
         </div>
         {
           <div>
-            {currentMenu === "Thông tin bệnh nhân" ? <ThongTinBenhNhan /> : ""}
+            {currentMenu === "Thông tin bệnh nhân" ? (
+              <ThongTinBenhNhanUnknown />
+            ) : (
+              ""
+            )}
           </div>
         }
 

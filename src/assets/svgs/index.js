@@ -23,8 +23,20 @@ import { ReactComponent as WhiteCalling } from "./whiteCalling.svg";
 import { ReactComponent as WhiteDocument } from "./whiteDocument.svg";
 import { ReactComponent as WhiteSpeaker } from "./whiteSpeaker.svg";
 import { ReactComponent as CallQlbn } from "./call_qlbn.svg";
+import { ReactComponent as BackCircle } from "./back_circle.svg";
+import { ReactComponent as DeleteWhite } from "./delete_white.svg";
+import { ReactComponent as Edit } from "./edit.svg";
+import { ReactComponent as Export } from "./export.svg";
+import { ReactComponent as FileDownload } from "./file_download.svg";
+import { ReactComponent as Import } from "./import.svg";
 
 export {
+  Export,
+  FileDownload,
+  Import,
+  Edit,
+  DeleteWhite,
+  BackCircle,
   AccessibleIconAlt,
   ClockEight,
   PhoneAlt,

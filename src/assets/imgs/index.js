@@ -10,8 +10,12 @@ import lichSuTuVanIcon from "./Group 34457.png";
 import LichSuKhamBenhIcon from "./Group 1.png";
 import HoSoKhamBenhIcon from "./Group324.png";
 import DrawerIcon from "./Group 34451a (2).png";
+import NoDataHistory from "./Group 34538.png";
+import UnknownAva from "./unknownAva.png";
 
 export {
+  UnknownAva,
+  NoDataHistory,
   Avatars,
   LoginPic,
   CallPicIcon,

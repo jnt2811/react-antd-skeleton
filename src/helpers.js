@@ -1,4 +1,4 @@
-import { apis, keys } from "./constants";
+// import { apis, keys } from "./constants";
 import cryptoRandomString from "crypto-random-string";
 import axios from "axios";
 import sha256 from "sha256";
@@ -7,7 +7,35 @@ import * as XLSX from "xlsx";
 import * as FileSaver from "file-saver";
 import { notification } from "antd";
 import i18n, { languageKeys } from "./i18n";
+import { keys } from "./constants";
+import apis from "./constants/apis";
 
+export function getUrlApi(stringUrl) {
+  let pathName = window.location.pathname;
+  let hostName = window.location.host;
+  //HLog("Utils getUrlApi partname: " + pathName + " hostName: " + hostName)
+  if (pathName !== "") {
+    //nếu partner khác rỗng, thì xoá bỏ các kí tự / đi
+    pathName = pathName.replace("/", "");
+  }
+
+  //nếu tồn tại text partner= thì xoá đi
+  if (pathName.includes("partner=")) {
+    pathName = pathName.replace("partner=", "");
+  }
+
+  if (!pathName || pathName === "") {
+    //nếu là localhost và pathName = rỗng, tức url mặc định ở localhost
+    if (hostName === "tmedical.h247.vn") {
+      pathName = "tmedical";
+    }
+  }
+
+  let urlApi = stringUrl + "?partner_code=" + pathName;
+
+  //HLog("Utils getUrlApi urlApi: " + urlApi + " pathName: " + pathName)
+  return urlApi;
+}
 export const localGet = (key, fallback = "") => {
   const val = localStorage.getItem(key);
   if (!val || val === "undefined" || val === "") return fallback;
