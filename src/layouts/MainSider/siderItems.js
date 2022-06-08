@@ -6,6 +6,8 @@ import {
   DocumentIcon,
   IncomingCall,
   PhoneAlt,
+  Statistical,
+  Docs,
   StatisticIcon,
 } from "../../assets/svgs";
 import { paths, keys } from "../../constants";

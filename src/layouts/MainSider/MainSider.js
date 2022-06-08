@@ -135,7 +135,7 @@ export const MainSider = ({ collapsed = false }) => {
                           style["menu-item"],
                           style["menu-item-3"],
                           currentKeys.includes(subSubItem.key) &&
-                            style["active"]
+                          style["active"]
                         )}
                         onClick={() => handleClickItem(subSubItem)}
                       >

@@ -3,7 +3,6 @@ import Table from "../../components/table/table";
 import i18n, { languageKeys } from "../../i18n";
 
 import style from "./lscg.module.less";
-
 export const LichSuCuocGoi = () => {
   const handleMenuClick = () => {};
   const dataSource = [
@@ -121,5 +120,5 @@ export const LichSuCuocGoi = () => {
 
       <Table dataSource={dataSource} columns={columns}></Table>
     </div>
-  );
-};
+  )
+}

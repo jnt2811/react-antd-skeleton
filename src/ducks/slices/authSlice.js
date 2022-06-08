@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-
+import { handleLogin, handleLogout } from "../sagas/authSagas";
 const initState = {
   isOk: undefined,
   message: undefined,
@@ -10,14 +10,17 @@ const authSlice = createSlice({
   name: "auth",
   initialState: initState,
   reducers: {
-    doLogin() {},
-    doLogout() {},
+    doLogin: (state, action) => {
+      handleLogin(action.payload)
+    },
+    doLogout: (state, action) => { handleLogout() },
 
     authSuccess(state, action) {
       return action.payload;
     },
 
     authFail(state, action) {
+      console.log(action.payload)
       return action.payload;
     },
 

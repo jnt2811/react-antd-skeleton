@@ -5,7 +5,7 @@ import i18n, { languageKeys, languages } from "../../i18n";
 
 export const MainHeader = ({
   siderCollapsed = false,
-  toggleSider = () => {},
+  toggleSider = () => { },
 }) => {
   const langItems = [
     {

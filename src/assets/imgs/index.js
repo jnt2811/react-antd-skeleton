@@ -1,3 +1,4 @@
+import avaliable from "./avaliable.jpg"
 import Avatars from "./Ellipse 936.png";
 import LoginPic from "./pic2.png";
 import CallPicIcon from "./Group34438.png";
@@ -28,4 +29,5 @@ export {
   LichSuKhamBenhIcon,
   HoSoKhamBenhIcon,
   DrawerIcon,
+  avaliable,
 };

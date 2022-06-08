@@ -2,6 +2,15 @@ import { ReactComponent as PhoneAlt } from "./u_phone-alt.svg";
 import { ReactComponent as ClockEight } from "./u_clock-eight.svg";
 import { ReactComponent as AccessibleIconAlt } from "./u_accessible-icon-alt.svg";
 import { ReactComponent as IncomingCall } from "./u_incoming-call.svg";
+import { ReactComponent as Sound } from "./Sound.svg";
+import { ReactComponent as MissedCall } from "./missedCall.svg";
+import { ReactComponent as Calendar } from "./Calendar.svg";
+import { ReactComponent as Statistical } from "./Statistical.svg";
+import { ReactComponent as Docs } from "./docs.svg";
+import { ReactComponent as Chart } from "./Chart.svg";
+import { ReactComponent as SoundWave } from "./Sound_wave.svg";
+import { ReactComponent as SoundWaveFill } from "./Sound_wave_fill.svg";
+import { ReactComponent as UserFill } from "./UserFill.svg";
 import { ReactComponent as HangUpPhone } from "./u_hangup-Phone.svg";
 import { ReactComponent as CallingPhone } from "./u_calling-phone.svg";
 import { ReactComponent as MuteMic } from "./u_mute-mic.svg";
@@ -10,8 +19,6 @@ import { ReactComponent as Called } from "./u_calling_phone2.svg";
 import { ReactComponent as CallingPhoneNavBar } from "./u_call_on_navbar.svg";
 import { ReactComponent as StatisticIcon } from "./u_controll-icon.svg";
 import { ReactComponent as DocumentIcon } from "./u_document-icon.svg";
-import { ReactComponent as Calendar } from "./u_calendar.svg";
-import { ReactComponent as Chart } from "./u_chart.svg";
 import { ReactComponent as Pencil } from "./u_pencil.svg";
 import { ReactComponent as PencilGreen } from "./u_pencil_green.svg";
 import { ReactComponent as IconInPopOver } from "./u_icon_profile.svg";
@@ -41,6 +48,14 @@ export {
   ClockEight,
   PhoneAlt,
   IncomingCall,
+  Sound,
+  MissedCall,
+  Statistical,
+  Docs,
+  Chart,
+  SoundWave,
+  UserFill,
+  SoundWaveFill,
   HangUpPhone,
   CallingPhone,
   MuteMic,
@@ -50,7 +65,6 @@ export {
   StatisticIcon,
   DocumentIcon,
   Calendar,
-  Chart,
   Pencil,
   PencilGreen,
   IconInPopOver,

@@ -1,88 +1,57 @@
+import { useState } from "react";
+import { Layout, Typography } from "antd";
+import { useSelector } from "react-redux";
 import i18n, { languageKeys } from "../../i18n";
 import style from "./tncg.module.less";
-
-import React, { useState } from "react";
-import { Button, Modal } from "antd";
-
-import { CallingChapNhan } from "../../assets/svgs";
-
-
-import { PicInTiepNhan, ProfilePic } from "../../assets/imgs";
-
-import { ChonHoSo } from "./chonHoSo/ChonHoSo";
-
+import * as tncg from "./Components";
+import { phoneStatus } from "../../constants/phoneStatus";
+const { Available, DamThoai, DatLichKham, CanLamSang, Phone } = tncg;
+const { Header, Content } = Layout;
+const { Title } = Typography;
 export const TiepNhanCuocGoi = () => {
-  const [isModalVisible, setIsModalVisible] = useState(false);
-  const [noCall, setNoCall] = useState(true);
-  const [Calling, setCalling] = useState(true);
+  // mô phỏng nhận trạng thái cuộc gọi tại store
+  const [patientService, setPatientService] = useState(null);
+  const { status, client } = useSelector((state) => state.call);
 
-  const showModal = () => {
-    setIsModalVisible(true);
+  const patientOptions = () => {
+    switch (patientService) {
+      case i18n.t(languageKeys.feature_Thong_tin_benh_nhan):
+        return <Available />;
+      case i18n.t(languageKeys.feature_Ghi_chu):
+        return <Available />;
+      case i18n.t(languageKeys.feature_Ke_don_va_dat_mua_thuoc):
+        return <Available />;
+      case i18n.t(languageKeys.feature_Dat_lich_kham):
+        return <DatLichKham />;
+      case i18n.t(languageKeys.feature_Dat_dich_vu_can_lam_sang):
+        return <CanLamSang />;
+
+      default:
+        return <Available />;
+    }
   };
-
-  const handleOk = () => {
-    setIsModalVisible(false);
-    setNoCall(!noCall);
-  };
-
-  const handleCancel = () => {
-    setIsModalVisible(false);
-  };
-
   return (
     <div className={style["container"]}>
-      <div className={style["title"]}>
-        {" "}
-        <p>{i18n.t(languageKeys.menu_Tiep_nhan_cuoc_goi)}</p>
-      </div>
+      <Layout className="layout">
+        {window.omiSDK.getStatus() === "unregistered" && <Phone.PhoneModal />}
+        {status === phoneStatus.invite && <Phone.InviteCall />}
+        <Header className={style['tncgHeader']}>
+          <Title level={3} style={{ color: "#2C3782", lineHeight: "68px" }}>
+            {i18n.t(languageKeys.menu_Tiep_nhan_cuoc_goi)}
+          </Title>
+        </Header>
 
-      <Button type="primary" onClick={showModal}>
-        No call change button
-      </Button>
+        <div style={{ backgroundColor: "#ffffff80" }}>
+          {status === phoneStatus.on_call || status === phoneStatus.end_call ? (
+            <DamThoai page={patientService} onPage={setPatientService} />
+          ) : (
+            <></>
+          )}
+        </div>
 
-      <Modal
-        title="Cuộc gọi đến"
-        visible={isModalVisible}
-        onOk={handleOk}
-        onCancel={handleCancel}
-        className={style["modalWrap"]}
-        okText={
-          <div className={style["modalChapNhan"]}>
-            <CallingChapNhan />
-            <div>Chấp nhận</div>
-          </div>
-        }
-        closable={false}
-        cancelText="Từ chối"
-      >
-        <div className={style["callingWrap"]}>
-          <img src={ProfilePic} alt="" />
-          <div className={style["profileText"]}>
-            <div>0832230555</div>
-          </div>
-        </div>
-      </Modal>
-
-      {noCall === true ? (
-        <div className={style["noCallDiv"]}>
-          <div className={style["picNoCall"]}>
-            <img src={PicInTiepNhan} alt="" />
-          </div>
-          <div className={style["noCallDivTextwrap"]}>
-            <div className={style["noCallDivTitle"]}>CRM - Call Center</div>
-            <div className={style["noCallDivText"]}>
-              Bạn chưa có cuộc gọi nào đang diễn ra. Vui lòng thực hiện cuộc
-              gọi!
-            </div>
-          </div>
-        </div>
-      ) : noCall === false && Calling === true ? (
-        <div>
-          <ChonHoSo />
-        </div>
-      ) : (
-        ""
-      )}
+        <Content style={{ padding: "2rem" }}>{patientOptions()}</Content>
+        <tncg.CuocGoiDen/>
+      </Layout>
     </div>
   );
 };

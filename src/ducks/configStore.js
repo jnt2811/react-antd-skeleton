@@ -1,10 +1,10 @@
 import createSagaMiddleware from "@redux-saga/core";
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import rootSaga from "./sagas/rootSaga";
-import { authSlice } from "./slices";
-
+import { authSlice, callSlice } from "./slices";
 const reducer = combineReducers({
   auth: authSlice,
+  call: callSlice,
 });
 
 const sagaMiddleware = createSagaMiddleware();
