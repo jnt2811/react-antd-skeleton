@@ -5,3 +5,8 @@ export * from "./QuanLyBenhNhan/QuanLyBenhNhan";
 export * from "./TiepNhanCuocGoi/TiepNhanCuocGoi";
 export * from "./LichSuCuocGoi/LichSuCuocGoi";
 export * from "./LichLamViec/LichLamViec";
+export * from "./bangDieuKhien/BangDieuKhien";
+export * from "./QuanLyNhanVien/QuanLyNhanVien";
+export * from "./thongKe/ThongKe";
+export * from "./TiepNhanCuocGoi/tiepNhanHoSo/TiepNhanHoSo";
+export * from "./TiepNhanCuocGoi/hoSoChuaCoTrongHeThong/hoSoChuaCoTrongHeThong";

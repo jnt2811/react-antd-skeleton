@@ -1,12 +1,14 @@
 import {
   AccessibleIconAlt,
+  Calendar,
+  Chart,
   ClockEight,
+  DocumentIcon,
   IncomingCall,
   PhoneAlt,
-  Calendar,
   Statistical,
   Docs,
-  Chart,
+  StatisticIcon,
 } from "../../assets/svgs";
 import { paths, keys } from "../../constants";
 import { rid } from "../../helpers";
@@ -34,8 +36,8 @@ export const siderItems = [
       },
       {
         key: rid(),
-        title: i18n.t(languageKeys.menu_Bang_dieu_khien),
-        icon: <Chart />,
+        title: i18n.t(languageKeys.menu_bang_dieu_khien),
+        icon: <StatisticIcon />,
         path: paths.bang_dieu_khien,
         subs: [],
       },
@@ -50,24 +52,23 @@ export const siderItems = [
   },
   {
     key: keys.feature_Quan_ly_nhan_vien,
-    title: i18n.t(languageKeys.menu_Quan_ly_nhan_vien),
-    icon: <Docs />,
+    title: i18n.t(languageKeys.menu_quan_ly_nhan_vien),
+    icon: <DocumentIcon />,
     path: paths.quan_ly_nhan_vien,
     subs: [],
   },
   {
-    key: keys.feature_Lich_Lam_viec,
-    title: i18n.t(languageKeys.menu_Lich_lam_viec),
+    key: keys.feature_lich_lam_viec,
+    title: i18n.t(languageKeys.menu_quan_ly_lich_lam_viec),
     icon: <Calendar />,
     path: paths.lich_lam_viec,
     subs: [],
   },
   {
-    key: keys.feature_Thong_ke,
-    title: i18n.t(languageKeys.menu_Thong_ke),
-    icon: <Statistical />,
+    key: keys.feature_Quan_ly_thong_ke,
+    title: i18n.t(languageKeys.menu_thong_ke),
+    icon: <Chart />,
     path: paths.thong_ke,
     subs: [],
   },
-
 ];

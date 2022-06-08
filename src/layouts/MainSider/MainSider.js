@@ -5,6 +5,7 @@ import cn from "classnames";
 import { useLocation } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { CallPicIcon, SideBarIcon } from "../../assets/imgs";
 
 const SIDER_WIDTH = 300;
 
@@ -63,6 +64,26 @@ export const MainSider = ({ collapsed = false }) => {
       collapsed={collapsed}
       className={style["container"]}
     >
+      <div className={style["iconCallWrap"]}>
+        {collapsed ? (
+          <div className={style["iconCallCondition"]}>
+            <img src={CallPicIcon} alt="" />
+          </div>
+        ) : (
+          <div className={style["iconCall"]}>
+            <img src={CallPicIcon} alt="" />
+          </div>
+        )}
+
+        {collapsed ? (
+          ""
+        ) : (
+          <div className={style["textIcon"]}>
+            <div>CRM</div>
+            <div>Calling center</div>
+          </div>
+        )}
+      </div>
       <Menu
         mode="inline"
         className={style["menu"]}
