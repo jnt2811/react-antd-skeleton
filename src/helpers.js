@@ -491,7 +491,7 @@ export function getTimeMillisecondUTC() {
 }
 
 // hàm đọc file excel
-export const readExcel = (file, onOk = () => {}) => {
+export const readExcel = (file, onOk = () => { }) => {
   const promise = new Promise((resolve, reject) => {
     const fileReader = new FileReader();
     fileReader.readAsArrayBuffer(file);
@@ -645,3 +645,77 @@ export const getDayName = (day) => {
       return "";
   }
 };
+
+export const formatPhoneNumber = (value) => {
+  if (!value) return value;
+  const phoneNumber = value.replace(/[^\d]/g, '');
+  const phoneNumberLength = phoneNumber.length;
+  if (phoneNumberLength < 4) return phoneNumber;
+  if (phoneNumberLength < 7) {
+    return `${phoneNumber.slice(0, 3)} ${phoneNumber.slice(4)}`;
+  }
+  return `${phoneNumber.slice(0, 3)} ${phoneNumber.slice(
+    3,
+    6
+  )} ${phoneNumber.slice(6, 10)}`;
+}
+
+export const postBearerToken = async (url, body, useToken = true) => {
+  try {
+    let token = localGet(keys.access_token)
+    let bearer_token = localGet(keys.bearer_token)
+
+    if (bearer_token) {
+      let config = {
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          "x-access-token": token,
+          "Authorization": `Bearer ${bearer_token}`
+        },
+        timeout: 5000,
+      }
+      // if (!useToken) config = { timeout: 5000 };
+      HLog("Common_post REQUEST url", url, "body", body, "config", config)
+      let dataResponse = await axios.post(url, body, config)
+      let result = dataResponse.data
+      HLog("Common_post RESPONSE url", url, "result", result)
+      return result
+    } else {
+      let config = {
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          "x-access-token": token,
+        },
+        timeout: 5000,
+      }
+      HLog("Common_post REQUEST url", url, "body", body, "config", config)
+      let dataResponse = await axios.post(url, body, config)
+      let result = dataResponse.data
+      HLog("Common_post RESPONSE url", url, "result", result)
+      return result
+    }
+  } catch (error) {
+    HLog("post error", error)
+    return null
+  }
+}
+
+export const getPhoneService = async (url, params) => {
+  const bearer_token = localGet(keys.bearer_token)
+  try {
+    let headers
+    if (bearer_token) {
+      headers = { Accept: "application/json", "Content-Type": "application/json", "Authorization": `Bearer ${bearer_token}` }
+    } else {
+      headers = { Accept: "application/json", "Content-Type": "application/json" }
+    }
+    const dataResponse = await axios.get(url, { params: { ...params }, headers: headers })
+    const result = dataResponse.data
+    HLog("getPhone Service RESPONSE url", url, "result", result)
+    return result
+  } catch (e) {
+    HLog("get Error: ", e)
+  }
+}
