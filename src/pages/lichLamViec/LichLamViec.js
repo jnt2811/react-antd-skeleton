@@ -1,5 +1,3 @@
-import style from "./lichLamViec.module.less";
-
 // import i18n, { languageKeys, languages } from "../../../i18n";
 import { Button, Col, Popover, Row, Spin } from "antd";
 import {
@@ -21,6 +19,7 @@ import { getDayName, rid } from "../../helpers";
 import i18n, { languageKeys, languages } from "../../i18n";
 import Topbar from "../../components/Topbar/Topbar";
 import SelectWeek from "../../components/SelectWeek/SelectWeek";
+import style from "./lichLamviec.module.less";
 // import { Edit } from "../../../assets/svg";
 
 export const LichLamViec = () => {
@@ -31,7 +30,48 @@ export const LichLamViec = () => {
   const [loading, setLoading] = useState(false);
   const [currentTimeRange, setCurrentTimeRange] = useState(null);
   const [currentWeek, setCurrentWeek] = useState(null); //thời gian bắt đầu, kết thúc của tuần hiện tại, phục vụ cho nút tuần này
-  const [dataSource, setDataSource] = useState([]);
+  const [dataSource, setDataSource] = useState([
+    {
+      KHOA_ID: "K1",
+      TEN_KHOA: "Khoa 1",
+      arr_phong: [
+        {
+          PHONG_ID: "P1",
+          TEN_PHONG: "Phong 1",
+          arr_ngay: [
+            {
+              arr_bac_si: [],
+              NGAY: "20221206",
+            },
+            {
+              arr_bac_si: [],
+              NGAY: "20221207",
+            },
+            {
+              arr_bac_si: [],
+              NGAY: "20221208",
+            },
+            {
+              arr_bac_si: [],
+              NGAY: "20221209",
+            },
+            {
+              arr_bac_si: [],
+              NGAY: "20221210",
+            },
+            {
+              arr_bac_si: [],
+              NGAY: "20221211",
+            },
+            {
+              arr_bac_si: [],
+              NGAY: "20221212",
+            },
+          ],
+        },
+      ],
+    },
+  ]);
 
   useEffect(() => {
     getDataSource();

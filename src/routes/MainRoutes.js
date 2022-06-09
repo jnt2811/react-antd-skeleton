@@ -47,7 +47,7 @@ export const MainRoutes = () => {
       <Layout>
         <MainSider collapsed={siderCollapsed} />
         <Layout.Content>
-        <MainHeader toggleSider={toggleSider} />
+          <MainHeader toggleSider={toggleSider} />
           <Switch>
             <Route
               exact

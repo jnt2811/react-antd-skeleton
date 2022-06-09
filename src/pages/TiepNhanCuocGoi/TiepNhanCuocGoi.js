@@ -35,7 +35,7 @@ export const TiepNhanCuocGoi = () => {
       <Layout className="layout">
         {window.omiSDK.getStatus() === "unregistered" && <Phone.PhoneModal />}
         {status === phoneStatus.invite && <Phone.InviteCall />}
-        <Header className={style['tncgHeader']}>
+        <Header className={style["tncgHeader"]}>
           <Title level={3} style={{ color: "#2C3782", lineHeight: "68px" }}>
             {i18n.t(languageKeys.menu_Tiep_nhan_cuoc_goi)}
           </Title>
@@ -50,7 +50,7 @@ export const TiepNhanCuocGoi = () => {
         </div>
 
         <Content style={{ padding: "2rem" }}>{patientOptions()}</Content>
-        <tncg.CuocGoiDen/>
+        <tncg.CuocGoiDen />
       </Layout>
     </div>
   );
