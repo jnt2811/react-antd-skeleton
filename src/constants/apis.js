@@ -1,4 +1,4 @@
-import apiServices from "../apiServices";
+import apiServices from "../config/apiServices";
 import { getUrlApi } from "../helpers";
 
 export default class apis {

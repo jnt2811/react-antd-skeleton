@@ -2,7 +2,7 @@ import { Avatar, Button, Modal, Typography } from "antd";
 import { forwardRef, useEffect, useImperativeHandle, useState } from "react";
 import { useDispatch } from "react-redux";
 import cn from "classnames";
-import { rejectCall } from "../../../ducks/slices/callSlice";
+import { acceptCall, rejectCall } from "../../../ducks/slices/callSlice";
 import i18n, { languageKeys } from "../../../i18n";
 import style from "../tncg.module.less"
 import { PhoneAlt, UserFill } from "../../../assets/svgs";
@@ -16,7 +16,7 @@ import { formatPhoneNumber } from "../../../helpers";
     }
 
 const CuocGoiDen = forwardRef(({},ref) => {
-    const [isModalVisible, setIsModalVisible] = useState(false);
+    const [isModalVisible, setIsModalVisible] = useState(true);
     const [currentNumber, setCurrentNumber] = useState("0338305136");
     const dispatch = useDispatch()
 
@@ -28,6 +28,7 @@ const CuocGoiDen = forwardRef(({},ref) => {
 
     const handleOk = () => {
         setIsModalVisible(false);
+        dispatch(acceptCall())
     };
 
     const handleCancel = () => {
