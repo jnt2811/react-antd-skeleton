@@ -6,7 +6,7 @@ import { formatPhoneNumber } from "../../../../helpers";
 const InviteCall = () => {
     const { status, phoneNumber } = useSelector(s => s.call)
 
-    const [isModalVisible, setIsModalVisible] = useState(status === phoneStatus.invite);
+    const [isModalVisible, setIsModalVisible] = useState(true);
 
     const handleOk = () => {
         window.omiSDK.acceptCall()
@@ -21,15 +21,11 @@ const InviteCall = () => {
         window.omiSDK.stopCall()
     }
     return (
-
-        <>
-
             <Modal visible={isModalVisible} footer={null} onCancel={handleCancel}>
                 <h2>{formatPhoneNumber(phoneNumber)}</h2>
                 <Button onClick={handleOk}>nghe máy</Button>
                 <Button onClick={handleRejectCall}>Tắt máy</Button>
             </Modal>
-        </>
     )
 
 }
