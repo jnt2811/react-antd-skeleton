@@ -210,7 +210,10 @@ export const LichLamViec = () => {
             </Col>
 
             <Col>
-              <Button type="primary" onClick={() => settingRef.current.open()}>
+              <Button
+              type="primary" 
+              icon={<PlusOutlined/>}
+              onClick={() => settingRef.current.open()}>
                 {i18n.t(languageKeys.Cai_dat_llv)}
               </Button>
             </Col>
